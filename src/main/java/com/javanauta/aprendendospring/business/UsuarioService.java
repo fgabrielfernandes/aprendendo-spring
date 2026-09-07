@@ -5,7 +5,6 @@ import com.javanauta.aprendendospring.infraestructure.exceptions.ConflictExcepti
 import com.javanauta.aprendendospring.infraestructure.exceptions.ResourceNotFountException;
 import com.javanauta.aprendendospring.infraestructure.repository.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.converter.json.GsonBuilderUtils;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +18,7 @@ public class UsuarioService {
     private final UsuarioRepository usuarioRepository;
     private final PasswordEncoder passwordEncoder;
 
-    public Usuario salvaUsuario(Usuario usuario) {
+    public Usuario salvarUsuario(Usuario usuario) {
         try {
             emailExiste(usuario.getEmail());
             usuario.setSenha(passwordEncoder.encode(usuario.getSenha()));
